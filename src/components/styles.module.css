@@ -1,0 +1,42 @@
+.folder {
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #ccc;
+  border-radius: 5px;
+  width: 400px;
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+}
+
+.file {
+  display: flex;
+  flex-direction: column;
+  padding-left: 5px;
+}
+
+.add {
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  margin: 2px;
+  cursor: pointer;
+}
+
+.input_container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.input_container > span {
+  margin-top: 5px;
+}
+
+.input_container_input {
+  margin: 6px;
+  cursor: pointer;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
