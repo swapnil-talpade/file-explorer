@@ -4,9 +4,10 @@ import styles from "./styles.module.css";
 
 interface FolderProps {
   explorer: FolderData;
+  handleInsertNode: (folderId: string, item: string, isFolder: boolean) => void;
 }
 
-const Folder = ({ explorer }: FolderProps) => {
+const Folder = ({ explorer, handleInsertNode }: FolderProps) => {
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
   const [showInput, setShowInput] = useState({
     visible: false,
@@ -26,6 +27,7 @@ const Folder = ({ explorer }: FolderProps) => {
   const onAddFolder = (e: any) => {
     if (e.keyCode === 13 && e.target.value) {
       //add logic to add folder
+      handleInsertNode(explorer.id, e.target.value, showInput.isFolder);
       setShowInput({ ...showInput, visible: false });
     }
   };
@@ -71,7 +73,11 @@ const Folder = ({ explorer }: FolderProps) => {
             </div>
           )}
           {explorer.items.map((item) => (
-            <Folder explorer={item} key={item.id} />
+            <Folder
+              handleInsertNode={handleInsertNode}
+              explorer={item}
+              key={item.id}
+            />
           ))}
         </div>
       </div>
